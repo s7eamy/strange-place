@@ -8,22 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="godot-game-template"
+config/name="strange-place"
 config/version="0.0.1"
 run/main_scene="res://scenes/menu/menu.tscn"
-config/features=PackedStringArray("4.5")
+config/features=PackedStringArray("4.6")
 config/icon="res://assets/sprites/icon.png"
 
 [autoload]
 
 GGT="*res://addons/ggt-core/ggt.gd"
 GGT_DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
-
-[category]
-
-property_name=1
 
 [display]
 
