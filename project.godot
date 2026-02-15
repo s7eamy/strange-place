@@ -25,10 +25,6 @@ config/icon="res://assets/sprites/icon.png"
 GGT="*res://addons/ggt-core/ggt.gd"
 GGT_DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
 
-[category]
-
-property_name=1
-
 [display]
 
 window/stretch/mode="2d"
