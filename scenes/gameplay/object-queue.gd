@@ -11,19 +11,9 @@ func _ready() -> void:
 
 
 func _load_objects() -> void:
-	# Load all ObjectData resources from resources/objects/
-	var dir = DirAccess.open("res://resources/objects/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var resource_path = "res://resources/objects/" + file_name
-				var data = load(resource_path) as ObjectData
-				if data:
-					object_pool.append(data)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+	# Load all ObjectData resources from the registry
+	# Using a registry ensures proper loading in exported builds
+	object_pool = ObjectRegistry.get_all_objects()
 
 
 func pick_next_object() -> void:
