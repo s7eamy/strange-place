@@ -1,23 +1,40 @@
 extends Node
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var object_queue: Node = $ObjectQueue
+@onready var placement_controller: Node2D = $PlacementController
 
-var t = 0
+var score: int = 0
+
 
 func _ready() -> void:
 	var scene_data = GGT.get_current_scene_data()
 	print("GGT/Gameplay: scene params are ", scene_data.params)
 
-	sprite_2d.position = get_viewport().get_visible_rect().size / 2
-
-	if GGT.is_changing_scene(): # this will be false if starting the scene with "Run current scene" or F6 shortcut
+	if GGT.is_changing_scene():
 		await GGT.scene_transition_finished
 
 	print("GGT/Gameplay: scene transition animation finished")
 
+	# Connect signals
+	object_queue.object_selected.connect(_on_object_selected)
+	placement_controller.object_placed.connect(_on_object_placed)
 
-func _process(delta):
-	var size = get_viewport().get_visible_rect().size
-	t += delta * 1.5
-	sprite_2d.position.x = size.x / 2.0 + 200.0 * sin(t * 0.8)
-	sprite_2d.position.y = size.y / 2.0 + 140.0 * sin(t)
+	# Start the game by picking the first object
+	object_queue.pick_next_object()
+
+
+func _on_object_selected(data: ObjectData) -> void:
+	# Show the ghost with the selected object
+	placement_controller.set_object(data)
+
+
+func _on_object_placed(placed_object: RigidBody2D) -> void:
+	# Increment score
+	score += 1
+	print("Object placed! Score: ", score)
+
+	# Update strangeness level based on score
+	object_queue.increase_strangeness(score)
+
+	# Pick the next object
+	object_queue.pick_next_object()
