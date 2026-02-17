@@ -1,7 +1,7 @@
 extends Node
 
-@onready var object_queue: Node = $ObjectQueue
-@onready var placement_controller: Node2D = $PlacementController
+@onready var object_queue = $ObjectQueue
+@onready var placement_controller = $PlacementController
 
 var score: int = 0
 
@@ -28,7 +28,7 @@ func _on_object_selected(data: ObjectData) -> void:
 	placement_controller.set_object(data)
 
 
-func _on_object_placed(placed_object: RigidBody2D) -> void:
+func _on_object_placed(_placed_object: RigidBody2D) -> void:
 	# Increment score
 	score += 1
 	print("Object placed! Score: ", score)

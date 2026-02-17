@@ -37,4 +37,5 @@ func pick_next_object() -> void:
 
 func increase_strangeness(score: int) -> void:
 	# Increase strangeness every 5 objects placed
+	@warning_ignore("integer_division")
 	current_strangeness_level = score / 5

@@ -35,7 +35,7 @@ func set_object(data: ObjectData) -> void:
 
 func _place_object() -> void:
 	# Spawn the real object at ghost position
-	var placed_object = placeable_object_scene.instantiate() as RigidBody2D
+	var placed_object = placeable_object_scene.instantiate()
 	placed_object.global_position = ghost.global_position
 
 	# Add to scene first (so @onready variables are initialized)
