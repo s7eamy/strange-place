@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://b8fp7r2hqt1yd"]
+
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/objects/object-data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cy7v0hok6qa4u" path="res://assets/sprites/suolelis.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tabletop"]
+size = Vector2(120, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leg_left"]
+size = Vector2(15, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leg_right"]
+size = Vector2(15, 40)
+
+[resource]
+script = ExtResource("1")
+object_name = "Suolelis"
+texture = ExtResource("2")
+weight = 0.8
+friction = 0.4
+bounce = 0.05
+collision_shapes = Array[Dictionary]([{
+"position": Vector2(0, -7),
+"shape": SubResource("RectangleShape2D_tabletop")
+}, {
+"position": Vector2(-45, 15),
+"shape": SubResource("RectangleShape2D_leg_left")
+}, {
+"position": Vector2(45, 15),
+"shape": SubResource("RectangleShape2D_leg_right")
+}])

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://chxj1817rm31j"]
+
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/objects/object-data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cr4c87fhxa7lv" path="res://assets/sprites/pomidor.png" id="2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pomidor"]
+radius = 19.0
+height = 49.0
+
+[resource]
+script = ExtResource("1")
+object_name = "Pomidor"
+texture = ExtResource("2")
+collision_shape = SubResource("CapsuleShape2D_pomidor")
+collision_position = Vector2(0, 3.5)
+collision_rotation = 1.571
+bounce = 0.1

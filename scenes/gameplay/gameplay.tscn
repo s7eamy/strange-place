@@ -1,13 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://4fyoq8npekf0"]
+[gd_scene format=3 uid="uid://4fyoq8npekf0"]
 
-[ext_resource type="Texture2D" uid="uid://dtwpm3uclaspj" path="res://assets/sprites/icon.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/object-queue.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bgiwahpb0iq8j" path="res://scenes/gameplay/placement-controller.tscn" id="4"]
 [ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://scenes/gameplay/gameplay.gd" id="5"]
 
-[node name="Gameplay" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0t60"]
+size = Vector2(1152, 41)
+
+[node name="Gameplay" type="Node" unique_id=774148261]
 script = ExtResource("5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1")
+[node name="Background" type="ColorRect" parent="." unique_id=901378927]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.4, 0.25, 0.15, 1)
 
-[node name="PauseLayer" parent="." instance=ExtResource("2")]
+[node name="Plintus" type="ColorRect" parent="." unique_id=279056975]
+offset_left = 1.0
+offset_top = 595.0
+offset_right = 1153.0
+offset_bottom = 608.0
+color = Color(0.2955296, 0.18215618, 0.10190261, 1)
+
+[node name="ObjectQueue" parent="." unique_id=1997079559 instance=ExtResource("3")]
+
+[node name="PlacementController" parent="." unique_id=1585144361 instance=ExtResource("4")]
+
+[node name="PauseLayer" parent="." unique_id=1325104755 instance=ExtResource("2")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2033155307]
+
+[node name="Floor" type="ColorRect" parent="StaticBody2D" unique_id=1176975848]
+offset_top = 607.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.23590246, 0.139797, 0.07388597, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=93879222]
+position = Vector2(577, 626.5)
+shape = SubResource("RectangleShape2D_x0t60")
