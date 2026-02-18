@@ -35,7 +35,6 @@ func set_object(scene: PackedScene) -> void:
 
 	# Disable physics
 	var ghost_body = ghost.get_node_or_null("RigidBody2D")
-	print(ghost_body)
 	if ghost_body:
 		ghost_body.freeze = true
 		ghost_body.sleeping = true
@@ -43,7 +42,6 @@ func set_object(scene: PackedScene) -> void:
 		ghost_body.set_collision_mask(0)
 		
 	var ghost_sprite = ghost_body.get_node_or_null("Sprite2D")
-	print(ghost_sprite)
 	if ghost_sprite:
 		ghost_sprite.modulate.a = 0.5
 
