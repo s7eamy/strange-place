@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://chd0jxscaeykx"]
+
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1_n1ylb"]
+[ext_resource type="Texture2D" uid="uid://cr4c87fhxa7lv" path="res://assets/sprites/tomato.png" id="2_smv64"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlaes"]
+radius = 18.0
+height = 52.0
+
+[node name="Tomato" type="Node2D" unique_id=1695248767]
+
+[node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
+script = ExtResource("1_n1ylb")
+score = 9
+timeline_type = "Present"
+shape_type = "Round"
+size_type = "Small"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=713133704]
+mass = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1340207446]
+position = Vector2(0, -3)
+texture = ExtResource("2_smv64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=958652781]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_nlaes")

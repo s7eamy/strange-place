@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://4fyoq8npekf0"]
 
+[ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://resources/scripts/gameplay.gd" id="1_q64rj"]
 [ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/object-queue.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://gifl2p3d16dt" path="res://scenes/gameplay/object-registry.tscn" id="2_q64rj"]
+[ext_resource type="PackedScene" uid="uid://b2j8r5k4m3n6p" path="res://scenes/gameplay/object-factory.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bgiwahpb0iq8j" path="res://scenes/gameplay/placement-controller.tscn" id="4"]
-[ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://scenes/gameplay/gameplay.gd" id="5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0t60"]
 size = Vector2(1152, 41)
 
 [node name="Gameplay" type="Node" unique_id=774148261]
-script = ExtResource("5")
+script = ExtResource("1_q64rj")
 
 [node name="Background" type="ColorRect" parent="." unique_id=901378927]
 offset_right = 1152.0
@@ -23,7 +24,10 @@ offset_right = 1153.0
 offset_bottom = 608.0
 color = Color(0.2955296, 0.18215618, 0.10190261, 1)
 
-[node name="ObjectQueue" parent="." unique_id=1997079559 instance=ExtResource("3")]
+[node name="ObjectRegistry" parent="." unique_id=830863817 instance=ExtResource("2_q64rj")]
+
+[node name="ObjectFactory" parent="." unique_id=1997079559 node_paths=PackedStringArray("object_registry") instance=ExtResource("3")]
+object_registry = NodePath("../ObjectRegistry")
 
 [node name="PlacementController" parent="." unique_id=1585144361 instance=ExtResource("4")]
 

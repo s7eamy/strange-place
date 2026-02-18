@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr4c87fhxa7lv"
-path="res://.godot/imported/pomidor.png-7c9d6b9b8455b7d39b8e4d02c0282dff.ctex"
+uid="uid://c7f8oyd0m07x8"
+path="res://.godot/imported/kettle.png-f7ad480c90f4ed14e2b3ed6d4ace63f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/pomidor.png"
-dest_files=["res://.godot/imported/pomidor.png-7c9d6b9b8455b7d39b8e4d02c0282dff.ctex"]
+source_file="res://assets/sprites/kettle.png"
+dest_files=["res://.godot/imported/kettle.png-f7ad480c90f4ed14e2b3ed6d4ace63f2.ctex"]
 
 [params]
 

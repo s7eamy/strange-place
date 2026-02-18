@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://q60o5sxl7nly"]
+
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1_ltsr6"]
+[ext_resource type="Texture2D" uid="uid://cy7v0hok6qa4u" path="res://assets/sprites/table.png" id="2_ym3ej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j0u8"]
+size = Vector2(284, 141)
+
+[node name="Table" type="Node2D" unique_id=1695248767]
+
+[node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
+script = ExtResource("1_ltsr6")
+weight = 9.0
+score = 4
+timeline_type = "Present"
+shape_type = "Rectangle"
+size_type = "Medium"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=713133704]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1340207446]
+position = Vector2(7, -40)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ym3ej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=867429105]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_4j0u8")
