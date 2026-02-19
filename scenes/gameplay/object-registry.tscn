@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://gifl2p3d16dt"]
+
+[ext_resource type="Script" uid="uid://bebl0xbw8rur6" path="res://resources/scripts/object-registry.gd" id="1_i87c4"]
+
+[node name="ObjectRegistry" type="Node" unique_id=830863817]
+script = ExtResource("1_i87c4")

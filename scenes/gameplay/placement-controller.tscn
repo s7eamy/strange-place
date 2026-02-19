@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bgiwahpb0iq8j"]
 
-[ext_resource type="Script" uid="uid://x33jbflsv1wq" path="res://scenes/gameplay/placement-controller.gd" id="1"]
+[ext_resource type="Script" uid="uid://x33jbflsv1wq" path="res://resources/scripts/placement-controller.gd" id="1"]
 
 [node name="PlacementController" type="Node2D" unique_id=251673512]
 script = ExtResource("1")
 
-[node name="Ghost" type="Sprite2D" parent="." unique_id=136363429]
-visible = false
+[node name="Ghost" type="Node2D" parent="." unique_id=462075899]
+
+[node name="Ghost_archived" type="Sprite2D" parent="." unique_id=136363429]

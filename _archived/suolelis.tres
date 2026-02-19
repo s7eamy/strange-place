@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ObjectData" format=3 uid="uid://b8fp7r2hqt1yd"]
 
-[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/objects/object-data.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://cy7v0hok6qa4u" path="res://assets/sprites/suolelis.png" id="2"]
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cy7v0hok6qa4u" path="res://assets/sprites/table.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tabletop"]
 size = Vector2(120, 10)
@@ -14,7 +14,6 @@ size = Vector2(15, 40)
 
 [resource]
 script = ExtResource("1")
-object_name = "Suolelis"
 texture = ExtResource("2")
 weight = 0.8
 friction = 0.4

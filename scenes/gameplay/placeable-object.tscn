@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c8g3qvn5yqr8w"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/placeable-object.gd" id="1"]
+[ext_resource type="Script" uid="uid://brwas2nmyx8ej" path="res://resources/scripts/placeable-object.gd" id="1"]
 
-[node name="PlaceableObject" type="RigidBody2D"]
+[node name="PlaceableObject" type="RigidBody2D" unique_id=881460376]
 script = ExtResource("1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=56961032]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=670041197]

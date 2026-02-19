@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy7v0hok6qa4u"
-path="res://.godot/imported/suolelis.png-122c2d50c4ac788bbc8bf6152bba6ad7.ctex"
+path="res://.godot/imported/table.png-0afb39c623f92c6645a8e7795ac9c73d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/suolelis.png"
-dest_files=["res://.godot/imported/suolelis.png-122c2d50c4ac788bbc8bf6152bba6ad7.ctex"]
+source_file="res://assets/sprites/table.png"
+dest_files=["res://.godot/imported/table.png-0afb39c623f92c6645a8e7795ac9c73d.ctex"]
 
 [params]
 
