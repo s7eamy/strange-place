@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b7ollimtrryc4"]
+
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1_auwve"]
+[ext_resource type="Texture2D" uid="uid://bddeijdthhrtq" path="res://assets/sprites/tv.png" id="2_auwve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j0u8"]
+size = Vector2(488, 231)
+
+[node name="TV" type="Node2D" unique_id=1695248767]
+
+[node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
+script = ExtResource("1_auwve")
+weight = 12.0
+score = 8
+timeline_type = "Present"
+shape_type = "Rectangle"
+size_type = "Large"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=713133704]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1340207446]
+position = Vector2(-2, 0)
+texture = ExtResource("2_auwve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=867429105]
+position = Vector2(0, -28.5)
+shape = SubResource("RectangleShape2D_4j0u8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=2133466211]
+position = Vector2(-3, 47)
+polygon = PackedVector2Array(2, 40, 94, 102, -90, 102)
