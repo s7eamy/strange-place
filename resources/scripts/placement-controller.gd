@@ -13,6 +13,7 @@ const COOLDOWN: float = 0.5
 const GHOST_ALPHA_MIN := 0.0
 const GHOST_ALPHA_MAX := 0.6
 
+
 func _process(delta: float) -> void:
 	if cooldown_remaining > 0.0:
 		cooldown_remaining -= delta
@@ -30,7 +31,6 @@ func _process(delta: float) -> void:
 			
 			# Tint selected item when unplaceable
 			if _is_overlapping():
-				print('overlap')
 				ghost_sprite.modulate = Color(1, 0.3, 0.3, ghost_sprite.modulate.a)
 			else:
 				ghost_sprite.modulate = Color(1, 1, 1, ghost_sprite.modulate.a)
@@ -92,7 +92,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _place_object() -> void:
-	print("Ghost mask:", ghost.collision_mask)
 	# Spawn the real object at ghost position
 	var placed_object = selected_scene.instantiate()
 	placed_object.global_position = ghost.global_position
