@@ -6,9 +6,11 @@ signal object_selected(scene: PackedScene)
 	# Using a registry ensures proper loading in exported builds
 @export var object_registry: Node
 
+
 func _ready() -> void:
 	if object_registry.scenes.size() == 0:
 		push_error("ObjectQueue: no objects in registry!")
+
 
 func pick_next_object(turn_number: int) -> void:
 	var eligibility_score_criteria = 4 * turn_number

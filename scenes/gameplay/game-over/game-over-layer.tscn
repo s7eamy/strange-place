@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://o8y2kar08cee"]
+
+[ext_resource type="Script" uid="uid://bgn4sxaxis3pp" path="res://resources/scripts/game-over-layer.gd" id="1_cup01"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmhy0"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_cup01"]
+font_size = 30
+
+[node name="GameOverLayer" type="CanvasLayer" unique_id=1082642305]
+process_mode = 3
+layer = 2
+script = ExtResource("1_cup01")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2111603308]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_top = 109.0
+offset_right = -176.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19408001, 0.19408001, 0.19408001, 0.21176471)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1597504409]
+anchors_preset = -1
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SplitContainer" type="SplitContainer" parent="CenterContainer" unique_id=115679456]
+layout_mode = 2
+vertical = true
+
+[node name="VBoxContainerLabels" type="VBoxContainer" parent="CenterContainer/SplitContainer" unique_id=669996350]
+layout_mode = 2
+
+[node name="GameOverTitle" type="Label" parent="CenterContainer/SplitContainer/VBoxContainerLabels" unique_id=639335279]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_pmhy0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreExplanationLabel" type="Label" parent="CenterContainer/SplitContainer/VBoxContainerLabels" unique_id=1363855610]
+layout_mode = 2
+text = "SCORE:"
+horizontal_alignment = 1
+
+[node name="ScoreNumber" type="Label" parent="CenterContainer/SplitContainer/VBoxContainerLabels" unique_id=144360690]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_cup01")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainerButtons" type="VBoxContainer" parent="CenterContainer/SplitContainer" unique_id=2100195564]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer/SplitContainer/VBoxContainerButtons" unique_id=939610822]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+text = "RESTART"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/SplitContainer/VBoxContainerButtons" unique_id=1868175125]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+focus_neighbor_top = NodePath("../RestartButton")
+focus_previous = NodePath("../RestartButton")
+text = "EXIT"

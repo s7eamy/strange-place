@@ -2,14 +2,15 @@ extends Node
 
 @onready var object_factory = $ObjectFactory
 @onready var placement_controller = $PlacementController
+@onready var game_over_zone = $GameOverZone
+@onready var game_over_layer = $GameOverLayer
 
 var score: int = 0
 var turn_number: int = 1
+var is_game_over: bool = false
+
 
 func _ready() -> void:
-	var scene_data = GGT.get_current_scene_data()
-	print("GGT/Gameplay: scene params are ", scene_data.params)
-
 	if GGT.is_changing_scene():
 		await GGT.scene_transition_finished
 	print("GGT/Gameplay: scene transition animation finished")
@@ -17,6 +18,8 @@ func _ready() -> void:
 	# Connect signals
 	object_factory.object_selected.connect(_on_object_selected)
 	placement_controller.object_placed.connect(_on_object_placed)
+	game_over_zone.object_entered_game_over_zone.connect(_on_game_over)
+	game_over_layer.restart_triggered.connect(_on_restart_triggered)
 
 	# Start the game by picking the first object
 	object_factory.pick_next_object(turn_number)
@@ -37,3 +40,16 @@ func _on_object_placed(placed_object: Node) -> void:
 
 	# Pick the next object
 	object_factory.pick_next_object(turn_number)
+
+
+func _on_game_over() -> void:
+	if is_game_over:
+		return
+
+	is_game_over = true
+	placement_controller.remove_object()
+	game_over_layer.show_game_over(score)
+
+
+func _on_restart_triggered() -> void:
+	get_tree().reload_current_scene()

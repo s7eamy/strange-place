@@ -2,13 +2,8 @@ extends Node2D
 
 signal object_placed(placed_object: Node)
 
-#@onready var ghost: RigidBody2D = $Ghost
 var ghost: Node2D
 var can_place: bool = false
-
-
-#func _ready() -> void:
-	#ghost.modulate.a = 0.5  # Semi-transparent
 
 
 func _process(_delta: float) -> void:
@@ -46,6 +41,12 @@ func set_object(scene: PackedScene) -> void:
 		ghost_sprite.modulate.a = 0.5
 
 
+func remove_object() -> void:
+	if ghost:
+		ghost.queue_free()
+	can_place = false
+
+
 func _place_object() -> void:
 	# Spawn the real object at ghost position
 	var placed_object = ghost.duplicate()
@@ -60,12 +61,5 @@ func _place_object() -> void:
 		rigid_body.set_collision_layer(1)
 		rigid_body.set_collision_mask(1)
 	
-	ghost.queue_free()
-	ghost = null
-	## Hide ghost and disable placement
-	#ghost.visible = false
-	#can_place = false
-	#current_object = null
-
-	# Emit signal
+	remove_object()
 	object_placed.emit(placed_object)

@@ -5,9 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://gifl2p3d16dt" path="res://scenes/gameplay/object-registry.tscn" id="2_q64rj"]
 [ext_resource type="PackedScene" uid="uid://b2j8r5k4m3n6p" path="res://scenes/gameplay/object-factory.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bgiwahpb0iq8j" path="res://scenes/gameplay/placement-controller.tscn" id="4"]
+[ext_resource type="Script" uid="uid://xe2qpnk4kptd" path="res://resources/scripts/game-over-controller.gd" id="6_0w2j2"]
+[ext_resource type="PackedScene" uid="uid://o8y2kar08cee" path="res://scenes/gameplay/game-over/game-over-layer.tscn" id="7_gh441"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh441"]
+size = Vector2(778, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0t60"]
-size = Vector2(1152, 41)
+size = Vector2(2242, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w2j2"]
+size = Vector2(4190, 13)
 
 [node name="Gameplay" type="Node" unique_id=774148261]
 script = ExtResource("1_q64rj")
@@ -15,14 +23,7 @@ script = ExtResource("1_q64rj")
 [node name="Background" type="ColorRect" parent="." unique_id=901378927]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.4, 0.25, 0.15, 1)
-
-[node name="Plintus" type="ColorRect" parent="." unique_id=279056975]
-offset_left = 1.0
-offset_top = 595.0
-offset_right = 1153.0
-offset_bottom = 608.0
-color = Color(0.2955296, 0.18215618, 0.10190261, 1)
+color = Color(0.51248854, 0.328868, 0.20362657, 1)
 
 [node name="ObjectRegistry" parent="." unique_id=830863817 instance=ExtResource("2_q64rj")]
 
@@ -33,14 +34,41 @@ object_registry = NodePath("../ObjectRegistry")
 
 [node name="PauseLayer" parent="." unique_id=1325104755 instance=ExtResource("2")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2033155307]
+[node name="BaseArea" type="StaticBody2D" parent="." unique_id=1714949793]
 
-[node name="Floor" type="ColorRect" parent="StaticBody2D" unique_id=1176975848]
+[node name="Plintus" type="ColorRect" parent="BaseArea" unique_id=279056975]
+offset_left = 188.0
+offset_top = 579.0
+offset_right = 966.0
+offset_bottom = 608.0
+color = Color(0.2955296, 0.18215618, 0.10190261, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseArea" unique_id=836340262]
+position = Vector2(577, 590)
+shape = SubResource("RectangleShape2D_gh441")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=2033155307]
+
+[node name="Floor" type="ColorRect" parent="Floor" unique_id=1176975848]
+offset_left = -542.0
 offset_top = 607.0
-offset_right = 1152.0
+offset_right = 1694.0
 offset_bottom = 648.0
-color = Color(0.23590246, 0.139797, 0.07388597, 1)
+color = Color(0.18198392, 0.3409272, 0.16425702, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=93879222]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=93879222]
 position = Vector2(577, 626.5)
 shape = SubResource("RectangleShape2D_x0t60")
+
+[node name="GameOverZone" type="Area2D" parent="." unique_id=450858512]
+script = ExtResource("6_0w2j2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverZone" unique_id=1641829078]
+position = Vector2(577, 607.5)
+shape = SubResource("RectangleShape2D_0w2j2")
+debug_color = Color(0.9515186, 1.92523e-07, 0.5656863, 0.41960785)
+
+[node name="GameOverLayer" parent="." unique_id=1082642305 instance=ExtResource("7_gh441")]
+visible = false
+
+[connection signal="body_entered" from="GameOverZone" to="GameOverZone" method="_on_body_entered"]

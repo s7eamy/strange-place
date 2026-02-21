@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @onready var object_data: ObjectData = $ObjectData
 
+
 func _ready() -> void:
 	mass = object_data.weight
 	physics_material_override = PhysicsMaterial.new()
