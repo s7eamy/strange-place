@@ -13,8 +13,8 @@ size = Vector2(32, 107)
 
 [node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
 script = ExtResource("1_ltsr6")
-weight = 9.0
-score = 5
+weight = 10.0
+score = 6
 timeline_type = "Present"
 shape_type = "Rectangle"
 size_type = "Medium"
