@@ -1,13 +1,19 @@
 extends Camera2D
 
-@export var move_speed := 800.0
-@export var edge_scroll_speed := 800.0
-@export var edge_margin := 20.0
+const move_speed := 800.0
+const edge_scroll_speed := 800.0
+const edge_scroll_margin := 20.0
 
-@export var zoom_step := 0.1
-@export var zoom_min := 0.4
-@export var zoom_max := 1.5
-@export var zoom_lerp_speed := 8.0
+const clamp_margin := 200.0
+var left_edge := 0.0
+var right_edge := 1152.0
+var top_edge := 0.0
+const bottom_edge := 648
+
+const zoom_step := 0.1
+const zoom_min := 0.4
+const zoom_max := 1.5
+const zoom_lerp_speed := 8.0
 
 var target_zoom := 1.0
 
@@ -20,6 +26,14 @@ func _process(delta):
 	_handle_keyboard_movement(delta)
 	_handle_edge_scroll(delta)
 	_handle_zoom(delta)
+	_clamp_camera_to_objects()
+
+
+func on_bounds_updated(left: float, right: float, top: float) -> void:
+	print('bounds updated')
+	left_edge = left
+	right_edge = right
+	top_edge = top
 
 
 # ---------------------------------
@@ -51,14 +65,14 @@ func _handle_edge_scroll(delta):
 	var screen_size := get_viewport_rect().size
 	var direction := Vector2.ZERO
 	
-	if mouse_pos.x <= edge_margin:
+	if mouse_pos.x <= edge_scroll_margin:
 		direction.x -= 1
-	elif mouse_pos.x >= screen_size.x - edge_margin:
+	elif mouse_pos.x >= screen_size.x - edge_scroll_margin:
 		direction.x += 1
 		
-	if mouse_pos.y <= edge_margin:
+	if mouse_pos.y <= edge_scroll_margin:
 		direction.y -= 1
-	elif mouse_pos.y >= screen_size.y - edge_margin:
+	elif mouse_pos.y >= screen_size.y - edge_scroll_margin:
 		direction.y += 1
 	
 	if direction != Vector2.ZERO:
@@ -84,3 +98,15 @@ func _handle_zoom(delta):
 	var current := zoom.x
 	var new_zoom: float = lerp(current, target_zoom, zoom_lerp_speed * delta)
 	zoom = Vector2(new_zoom, new_zoom)
+
+
+func _clamp_camera_to_objects() -> void:
+	var half_screen_zoomed := get_viewport_rect().size * 0.5  / zoom
+	
+	var min_x := left_edge - half_screen_zoomed.x + clamp_margin
+	var max_x := right_edge + half_screen_zoomed.x - clamp_margin
+	var min_y := top_edge - half_screen_zoomed.y + clamp_margin
+	var max_y := bottom_edge - half_screen_zoomed.y # To ensure it does not go below floor
+	
+	global_position.x = clamp(global_position.x, min_x, max_x)
+	global_position.y = clamp(global_position.y, min_y, max_y)
