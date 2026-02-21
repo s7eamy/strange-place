@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://resources/scripts/gameplay.gd" id="1_q64rj"]
 [ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
+[ext_resource type="Script" uid="uid://b1lsov40ei4p4" path="res://resources/scripts/camera-controller.gd" id="2_pa1on"]
 [ext_resource type="PackedScene" uid="uid://gifl2p3d16dt" path="res://scenes/gameplay/object-registry.tscn" id="2_q64rj"]
 [ext_resource type="PackedScene" uid="uid://b2j8r5k4m3n6p" path="res://scenes/gameplay/object-factory.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bgiwahpb0iq8j" path="res://scenes/gameplay/placement-controller.tscn" id="4"]
@@ -19,6 +20,10 @@ size = Vector2(4190, 13)
 
 [node name="Gameplay" type="Node" unique_id=774148261]
 script = ExtResource("1_q64rj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1894714820]
+position = Vector2(576, 324)
+script = ExtResource("2_pa1on")
 
 [node name="Background" type="ColorRect" parent="." unique_id=901378927]
 offset_right = 1152.0
