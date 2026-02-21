@@ -1,29 +1,28 @@
-[gd_scene format=3 uid="uid://dqwdkc1jx4hyd"]
+[gd_scene format=3 uid="uid://dobyi1k7hea8n"]
 
-[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1_e0wm6"]
-[ext_resource type="Texture2D" uid="uid://c7f8oyd0m07x8" path="res://assets/sprites/kettle.png" id="2_e0wm6"]
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1_h1788"]
+[ext_resource type="Texture2D" uid="uid://c6y40p8xgto0l" path="res://assets/sprites/milk.png" id="2_h1788"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfmye"]
-radius = 40.0
-height = 102.00001
+radius = 30.0
+height = 116.0
 
-[node name="Kettle" type="Node2D" unique_id=1695248767]
+[node name="Milk" type="Node2D" unique_id=1695248767]
 
 [node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
-script = ExtResource("1_e0wm6")
-weight = 3.0
-score = 7
+script = ExtResource("1_h1788")
+weight = 1.5
+score = 3
 timeline_type = "Present"
 shape_type = "Irregular"
-size_type = "Small"
+size_type = "Medium"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=713133704]
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1340207446]
-position = Vector2(-2, 9)
-texture = ExtResource("2_e0wm6")
+position = Vector2(-1, 0)
+texture = ExtResource("2_h1788")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=867429105]
 position = Vector2(-2, -1)
-rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_qfmye")
