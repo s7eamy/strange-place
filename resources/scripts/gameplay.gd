@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _on_object_selected(scene: PackedScene) -> void:
 	# Show the ghost with the selected object
-	placement_controller.set_object(scene)
+	placement_controller.preview_object(scene)
 
 
 func _on_object_placed(placed_object: Node) -> void:
