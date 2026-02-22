@@ -11,8 +11,8 @@ height = 102.00001
 
 [node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
 script = ExtResource("1_e0wm6")
-weight = 3.0
-score = 7
+weight = 4.0
+score = 6
 timeline_type = "Present"
 shape_type = "Irregular"
 size_type = "Small"

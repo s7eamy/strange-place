@@ -13,9 +13,10 @@ func _ready() -> void:
 
 
 func pick_next_object(turn_number: int) -> void:
-	var eligibility_score_criteria = 4 * turn_number
+	var eligibility_score_criteria = 3 * turn_number
 	var eligible_objects: Array = []
 
+	# TODO: don't trigger recalculation if all objects have been added
 	for object in object_registry.scenes:
 		var instance = object.instantiate()
 		var object_data = instance.get_node("ObjectData")
