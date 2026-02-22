@@ -20,8 +20,8 @@ size = Vector2(152, 424)
 
 [node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
 script = ExtResource("1_dbrya")
-weight = 12.0
-score = 12
+weight = 30.0
+score = 13
 timeline_type = "Past"
 shape_type = "Irregular"
 size_type = "Medium"

@@ -5,6 +5,7 @@ extends Node
 @onready var game_over_zone = $GameOverZone
 @onready var game_over_layer = $GameOverLayer
 @onready var camera_controller = $CameraController
+@onready var gameplay_ui_layer = $GameplayUILayer
 
 var score: int = 0
 var turn_number: int = 1
@@ -21,6 +22,7 @@ func _ready() -> void:
 	placement_controller.object_placed.connect(_on_object_placed)
 	game_over_zone.object_entered_game_over_zone.connect(_on_game_over)
 	game_over_layer.restart_triggered.connect(_on_restart_triggered)
+	gameplay_ui_layer.restart_triggered.connect(_on_restart_triggered)
 	placement_controller.bounds_updated.connect(_on_bounds_updated)
 
 	# Start the game by picking the first object
@@ -40,8 +42,8 @@ func _on_object_placed(placed_object: Node) -> void:
 	turn_number += 1
 	print("Object placed! Turn: ", turn_number, " Score +", object_score, " Total: ", score)
 
-	# Pick the next object
 	object_factory.pick_next_object(turn_number)
+	gameplay_ui_layer.update_score(score)
 
 
 func _on_game_over() -> void:

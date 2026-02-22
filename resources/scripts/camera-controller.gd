@@ -30,7 +30,6 @@ func _process(delta):
 
 
 func on_bounds_updated(left: float, right: float, top: float) -> void:
-	print('bounds updated')
 	left_edge = left
 	right_edge = right
 	top_edge = top

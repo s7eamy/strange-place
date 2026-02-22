@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4fyoq8npekf0"]
 
 [ext_resource type="Script" uid="uid://b83omkj4aqsph" path="res://resources/scripts/gameplay.gd" id="1_q64rj"]
-[ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/pause-layer/pause-layer.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://barl4q1kugrmm" path="res://scenes/gameplay/gameplay-ui-layer/gameplay-ui-layer.tscn" id="2"]
 [ext_resource type="Script" uid="uid://b1lsov40ei4p4" path="res://resources/scripts/camera-controller.gd" id="2_pa1on"]
 [ext_resource type="PackedScene" uid="uid://gifl2p3d16dt" path="res://scenes/gameplay/object-registry.tscn" id="2_q64rj"]
 [ext_resource type="PackedScene" uid="uid://b2j8r5k4m3n6p" path="res://scenes/gameplay/object-factory.tscn" id="3"]
@@ -73,7 +73,8 @@ shape = SubResource("RectangleShape2D_0w2j2")
 debug_color = Color(0.9515186, 1.92523e-07, 0.5656863, 0.41960785)
 
 [node name="GameOverLayer" parent="." unique_id=1082642305 instance=ExtResource("7_gh441")]
-visible = false
+
+[node name="GameplayUILayer" parent="." unique_id=1013752035 instance=ExtResource("2")]
 
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=912276911]
 scroll_scale = Vector2(0.8, 0.8)

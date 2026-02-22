@@ -10,7 +10,7 @@ size = Vector2(488, 231)
 
 [node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
 script = ExtResource("1_auwve")
-weight = 12.0
+weight = 20.0
 score = 11
 timeline_type = "Present"
 shape_type = "Rectangle"
