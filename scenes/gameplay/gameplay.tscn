@@ -78,6 +78,8 @@ debug_color = Color(0.9515186, 1.92523e-07, 0.5656863, 0.41960785)
 
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=912276911]
 scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(1152, 0)
+repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundParallax" unique_id=2108036408]
 z_index = -1
