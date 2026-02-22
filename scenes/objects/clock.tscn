@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://87a1p08c20hm"]
+
+[ext_resource type="Script" uid="uid://csheo64rqo1d2" path="res://resources/scripts/object-data.gd" id="1_dbrya"]
+[ext_resource type="Texture2D" uid="uid://d2pfkysdjke23" path="res://assets/sprites/clock.png" id="2_dbrya"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfmye"]
+radius = 26.0
+height = 62.000004
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dto5v"]
+size = Vector2(206, 18)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_g5f3k"]
+points = PackedVector2Array(-108, 235, -88, 213, 83, 213, 105, 235)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbrya"]
+size = Vector2(152, 424)
+
+[node name="Clock" type="Node2D" unique_id=1695248767]
+
+[node name="ObjectData" type="Node2D" parent="." unique_id=186530069]
+script = ExtResource("1_dbrya")
+weight = 12.0
+score = 12
+timeline_type = "Past"
+shape_type = "Irregular"
+size_type = "Medium"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=713133704]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1340207446]
+position = Vector2(-1, 0)
+texture = ExtResource("2_dbrya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=867429105]
+position = Vector2(-1, -228)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qfmye")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D" unique_id=928281815]
+position = Vector2(0, 246)
+shape = SubResource("RectangleShape2D_dto5v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D" unique_id=1776251599]
+shape = SubResource("ConvexPolygonShape2D_g5f3k")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D" unique_id=2020707645]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_dbrya")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=1758528222]
+position = Vector2(-68, -212)
+polygon = PackedVector2Array(2, -1, 24, -25, 112, -25, 127, -1)
