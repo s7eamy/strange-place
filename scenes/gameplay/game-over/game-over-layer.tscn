@@ -11,7 +11,6 @@ font_size = 30
 [node name="GameOverLayer" type="CanvasLayer" unique_id=1082642305]
 process_mode = 3
 layer = 2
-follow_viewport_enabled = true
 script = ExtResource("1_cup01")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2111603308]
