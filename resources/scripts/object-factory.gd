@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func pick_next_object(turn_number: int) -> void:
-	var eligibility_score_criteria = 3 * turn_number
+	var eligibility_score_criteria = 4 * turn_number
 	var eligible_objects: Array = []
 
 	# TODO: don't trigger recalculation if all objects have been added
