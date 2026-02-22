@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bgiwahpb0iq8j" path="res://scenes/gameplay/placement-controller.tscn" id="4"]
 [ext_resource type="Script" uid="uid://xe2qpnk4kptd" path="res://resources/scripts/game-over-controller.gd" id="6_0w2j2"]
 [ext_resource type="PackedScene" uid="uid://o8y2kar08cee" path="res://scenes/gameplay/game-over/game-over-layer.tscn" id="7_gh441"]
+[ext_resource type="Texture2D" uid="uid://dyyqxt63mwo2k" path="res://assets/sprites/background.png" id="9_elju3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gh441"]
 size = Vector2(778, 20)
@@ -29,12 +30,6 @@ script = ExtResource("2_pa1on")
 
 [node name="PlacementController" parent="." unique_id=1585144361 node_paths=PackedStringArray("objects_collection") instance=ExtResource("4")]
 objects_collection = NodePath("../ObjectsCollection")
-
-[node name="Background" type="ColorRect" parent="." unique_id=901378927]
-z_index = -1
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.51248854, 0.328868, 0.20362657, 1)
 
 [node name="ObjectRegistry" parent="." unique_id=830863817 instance=ExtResource("2_q64rj")]
 
@@ -79,5 +74,13 @@ debug_color = Color(0.9515186, 1.92523e-07, 0.5656863, 0.41960785)
 
 [node name="GameOverLayer" parent="." unique_id=1082642305 instance=ExtResource("7_gh441")]
 visible = false
+
+[node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=912276911]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundParallax" unique_id=2108036408]
+z_index = -1
+position = Vector2(576, -3448)
+texture = ExtResource("9_elju3")
 
 [connection signal="body_entered" from="GameOverZone" to="GameOverZone" method="_on_body_entered"]
