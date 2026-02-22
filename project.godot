@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="strange-place"
-config/version="0.0.1"
+config/version="alpha"
 run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.6")
 config/icon="res://assets/sprites/icon.png"
