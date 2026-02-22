@@ -11,6 +11,7 @@ font_size = 30
 [node name="GameOverLayer" type="CanvasLayer" unique_id=1082642305]
 process_mode = 3
 layer = 2
+follow_viewport_enabled = true
 script = ExtResource("1_cup01")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2111603308]
@@ -26,9 +27,9 @@ grow_vertical = 2
 color = Color(0.19408001, 0.19408001, 0.19408001, 0.21176471)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1597504409]
-anchors_preset = -1
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
